@@ -4,8 +4,6 @@
 
 Mineflayer plugin for manipulating movement packets and enabling **fly**, **noFall**, **speed**, and **blink** modes.
 
-> ⚠️ Use only in testing environments (private servers or lab setups).
-
 ![Packet Flow](docs/assets/packet-flow.svg)
 ![Hacks Overview](docs/assets/hacks-overview.svg)
 

@@ -1,19 +1,21 @@
+
+
 # mineflayer-packet
 
-Plugin de Mineflayer para manipular paquetes de movimiento y habilitar modos tipo **fly**, **noFall**, **speed** y **blink**.
+Mineflayer plugin for manipulating movement packets and enabling **fly**, **noFall**, **speed**, and **blink** modes.
 
-> ⚠️ Úsalo solo en entornos de prueba (servidores privados o laboratorio).
+> ⚠️ Use only in testing environments (private servers or lab setups).
 
-![Flujo de paquetes](docs/assets/packet-flow.svg)
-![Resumen de hacks](docs/assets/hacks-overview.svg)
+![Packet Flow](docs/assets/packet-flow.svg)
+![Hacks Overview](docs/assets/hacks-overview.svg)
 
-## 1) Instalación rápida
+## 1) Quick Installation
 
 ```bash
 npm install mineflayer
 ```
 
-Copia este repo en tu proyecto y carga el plugin:
+Copy this repo into your project and load the plugin:
 
 ```js
 const mineflayer = require('mineflayer')
@@ -30,41 +32,49 @@ bot.loadPlugin(packetHacksPlugin)
 
 ---
 
-## 2) API del plugin
+## 2) Plugin API
 
-Al cargar el plugin, se expone `bot.packetHacks` con estos métodos:
+Once loaded, the plugin exposes `bot.packetHacks` with these methods:
 
-- `enableFly(config)`
-- `disableFly()`
-- `enableNoFall()`
-- `disableNoFall()`
-- `enableSpeed(config)`
-- `disableSpeed()`
-- `enableBlink(config)`
-- `disableBlink({ flush })`
-- `flushBlinkQueue()`
-- `status()`
+| Method | Description |
+|---|---|
+| `enableFly(config)` | Starts packet-based flight |
+| `disableFly()` | Stops flight mode |
+| `enableNoFall()` | Activates fall damage prevention |
+| `disableNoFall()` | Deactivates fall damage prevention |
+| `enableSpeed(config)` | Enables speed boost via packet burst |
+| `disableSpeed()` | Disables speed boost |
+| `enableBlink(config)` | Starts queuing movement packets |
+| `disableBlink({ flush })` | Stops blink, optionally flushes the queue |
+| `flushBlinkQueue()` | Manually sends all queued packets |
+| `status()` | Returns the current state of all hacks |
 
-### Configuración de `enableFly(config)`
+### `enableFly(config)` Options
 
-- `horizontalBoost` (default: `0.45`) → avance horizontal por tick de fly.
-- `verticalBoost` (default: `0.0`) → empuje vertical por tick.
-- `intervalMs` (default: `50`) → cada cuánto se envía el paquete.
+| Parameter | Default | Description |
+|---|---|---|
+| `horizontalBoost` | `0.45` | Horizontal advance per fly tick |
+| `verticalBoost` | `0.0` | Vertical push per tick |
+| `intervalMs` | `50` | How often the position packet is sent (ms) |
 
-### Configuración de `enableSpeed(config)`
+### `enableSpeed(config)` Options
 
-- `multiplier` (default: `2.0`) → cuánto “acelera” el movimiento.
-- `burstPackets` (default: `2`) → cuántos paquetes extra mandar por movimiento.
+| Parameter | Default | Description |
+|---|---|---|
+| `multiplier` | `2.0` | How much to "accelerate" movement |
+| `burstPackets` | `2` | Extra packets sent per movement tick |
 
-### Configuración de `enableBlink(config)`
+### `enableBlink(config)` Options
 
-- `maxQueue` (default: `300`) → máximo de paquetes en cola.
+| Parameter | Default | Description |
+|---|---|---|
+| `maxQueue` | `300` | Maximum packets held in queue |
 
 ---
 
-## 3) Ejemplos de cada hack
+## 3) Hack Examples
 
-## 3.1 Fly
+### 3.1 Fly
 
 ```js
 bot.packetHacks.enableFly({
@@ -74,58 +84,58 @@ bot.packetHacks.enableFly({
 })
 ```
 
-- `horizontalBoost` alto = más velocidad frontal.
-- `verticalBoost` positivo = gana altura de forma constante.
+- Higher `horizontalBoost` = faster forward speed.
+- Positive `verticalBoost` = steady altitude gain.
 
-Para apagar:
+To disable:
 
 ```js
 bot.packetHacks.disableFly()
 ```
 
-## 3.2 NoFall
+### 3.2 NoFall
 
 ```js
 bot.packetHacks.enableNoFall()
 ```
 
-Esto fuerza `onGround: true` en paquetes de movimiento salientes.
+This forces `onGround: true` on all outgoing movement packets, negating fall damage.
 
-Para apagar:
+To disable:
 
 ```js
 bot.packetHacks.disableNoFall()
 ```
 
-## 3.3 Speed
+### 3.3 Speed
 
 ```js
 bot.packetHacks.enableSpeed({ multiplier: 2.5, burstPackets: 3 })
 ```
 
-Esto inyecta paquetes extra con pequeños offsets en dirección de mirada.
+This injects extra position packets with small offsets in the look direction.
 
-Para apagar:
+To disable:
 
 ```js
 bot.packetHacks.disableSpeed()
 ```
 
-## 3.4 Blink
+### 3.4 Blink
 
 ```js
 bot.packetHacks.enableBlink({ maxQueue: 200 })
 ```
 
-Durante Blink, los paquetes de movimiento se guardan en cola en vez de enviarse.
+While Blink is active, movement packets are queued in memory instead of being sent.
 
-Para apagar y enviar todo de golpe:
+To disable and flush everything at once (teleport effect):
 
 ```js
 bot.packetHacks.disableBlink({ flush: true })
 ```
 
-Para apagar y tirar la cola:
+To disable and discard the queue:
 
 ```js
 bot.packetHacks.disableBlink({ flush: false })
@@ -133,43 +143,82 @@ bot.packetHacks.disableBlink({ flush: false })
 
 ---
 
-## 4) Script de ejemplo completo
+## 4) Full Example Script
 
-Tienes un script listo en:
+A ready-to-run script is available at:
 
 - `examples/basic-usage.js`
 
-Ejecuta:
+Run it with:
 
 ```bash
 node examples/basic-usage.js
 ```
 
-Comandos por chat en el ejemplo:
+In-game chat commands:
 
-- `!blink on`
-- `!blink off`
-- `!hacks off`
-
----
-
-## 5) ¿Cómo funciona internamente?
-
-1. El plugin guarda la función original `bot._client.write`.
-2. Sobrescribe `write` para interceptar paquetes de movimiento.
-3. Según el hack activo:
-   - **noFall** modifica `onGround`.
-   - **speed** duplica/inserta paquetes de posición.
-   - **blink** encola paquetes y los libera luego.
-   - **fly** usa un loop con `setInterval` para empujar posición.
-4. Al terminar el bot (`end`), restaura `write` original.
+| Command | Action |
+|---|---|
+| `!fly on` | Enables fly mode |
+| `!fly off` | Disables fly mode |
+| `!nofall on` | Enables NoFall |
+| `!speed on` | Enables speed boost |
+| `!blink on` | Starts queuing packets |
+| `!blink off` | Flushes queue and disables blink |
+| `!hacks off` | Disables all hacks |
+| `!status` | Prints current hack states |
 
 ---
 
-## 6) Consejos para estabilidad
+## 5) How It Works Internally
 
-- No actives todos los hacks al máximo al mismo tiempo.
-- Ajusta `intervalMs`, `multiplier` y `burstPackets` gradualmente.
-- Si el servidor tiene anticheat, prueba valores bajos.
-- Usa `bot.packetHacks.status()` para inspeccionar estado interno.
+1. **Saves** the original `bot._client.write` function.
+2. **Overrides** `write` to intercept outgoing movement packets.
+3. **Applies** the active hack logic:
 
+   | Hack | Mechanism |
+   |---|---|
+   | **noFall** | Modifies the `onGround` field to `true` |
+   | **speed** | Duplicates and injects extra position packets |
+   | **blink** | Queues packets in memory, releases them on flush |
+   | **fly** | Runs a `setInterval` loop pushing position updates |
+
+4. **Restores** the original `write` function on bot `end` event.
+
+---
+
+## 6) Stability Tips
+
+- **Don't** enable all hacks at maximum values simultaneously.
+- **Gradually** adjust `intervalMs`, `multiplier`, and `burstPackets`.
+- If the server runs anticheat, **start with low values** and increase carefully.
+- Use `bot.packetHacks.status()` to **inspect internal state** at any time.
+
+---
+
+## 7) Project Structure
+
+```
+mineflayer-packet/
+├── src/
+│   ├── index.js            # Plugin entry point & loader
+│   ├── fly.js              # Fly hack implementation
+│   ├── nofall.js           # NoFall hack implementation
+│   ├── speed.js            # Speed hack implementation
+│   └── blink.js            # Blink hack implementation
+├── examples/
+│   └── basic-usage.js      # Ready-to-run demo script
+├── docs/
+│   └── assets/
+│       ├── packet-flow.svg # Packet interception flow diagram
+│       └── hacks-overview.svg # Hack summary diagram
+├── package.json
+└── README.md
+```
+
+---
+
+<p align="center">
+  <strong>⚠️ For testing and analysis purposes only.</strong><br>
+  <em>Using this on public servers may violate server rules and result in bans.</em>
+</p>

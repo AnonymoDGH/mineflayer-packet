@@ -1,11 +1,7 @@
 
 
-<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560">
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="820" viewBox="0 0 980 820">
   <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#f8fafc"/>
-      <stop offset="100%" stop-color="#eef2f7"/>
-    </linearGradient>
     <linearGradient id="cardFly" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%" stop-color="#eff6ff"/>
       <stop offset="100%" stop-color="#dbeafe"/>
@@ -22,135 +18,188 @@
       <stop offset="0%" stop-color="#f3f0ff"/>
       <stop offset="100%" stop-color="#e8e0ff"/>
     </linearGradient>
+    <linearGradient id="cardVelocity" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fef2f2"/>
+      <stop offset="100%" stop-color="#fecaca"/>
+    </linearGradient>
+    <linearGradient id="cardPhase" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ecfeff"/>
+      <stop offset="100%" stop-color="#cffafe"/>
+    </linearGradient>
     <filter id="shadow" x="-3%" y="-3%" width="106%" height="114%">
-      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.10" flood-color="#1e293b"/>
-    </filter>
-    <filter id="shadowSm" x="-2%" y="-4%" width="104%" height="112%">
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-opacity="0.07" flood-color="#1e293b"/>
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-opacity="0.08" flood-color="#1e293b"/>
     </filter>
   </defs>
 
-  <!-- Background -->
-  <rect width="980" height="560" rx="20" fill="url(#bgGrad)"/>
-  <rect x="1" y="1" width="978" height="558" rx="20" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
+  <!-- Title -->
+  <text x="490" y="36" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="800" font-size="26" fill="#0f172a" text-anchor="middle" letter-spacing="-0.5">Built-in Packet Hacks</text>
+  <text x="490" y="58" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13" fill="#64748b" text-anchor="middle">Core modules included with mineflayer-packet</text>
 
-  <!-- Title bar -->
-  <rect x="1" y="1" width="978" height="60" rx="20" fill="#1e293b"/>
-  <rect x="1" y="32" width="978" height="29" fill="#1e293b"/>
-  <circle cx="32" cy="31" r="7" fill="#ef4444" opacity="0.9"/>
-  <circle cx="54" cy="31" r="7" fill="#f59e0b" opacity="0.9"/>
-  <circle cx="76" cy="31" r="7" fill="#22c55e" opacity="0.9"/>
-  <text x="490" y="38" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="700" font-size="19" fill="#f1f5f9" text-anchor="middle" letter-spacing="0.5">📋 Packet Hack Summary</text>
+  <!-- ═══════════ ROW 1 ═══════════ -->
 
-  <!-- ════════════ CARD 1: FLY ════════════ -->
+  <!-- CARD: FLY -->
   <g filter="url(#shadow)">
-    <rect x="30" y="82" width="450" height="200" rx="16" fill="url(#cardFly)" stroke="#93b4f8" stroke-width="1.5"/>
+    <rect x="20" y="80" width="460" height="210" rx="16" fill="url(#cardFly)" stroke="#93b4f8" stroke-width="1.5"/>
   </g>
-  <!-- Header -->
-  <rect x="30" y="82" width="450" height="50" rx="16" fill="#3b82f6" opacity="0.12"/>
-  <rect x="30" y="110" width="450" height="22" fill="#3b82f6" opacity="0.12"/>
-  <rect x="50" y="92" width="36" height="36" rx="10" fill="#3b82f6" opacity="0.2"/>
-  <text x="68" y="117" font-size="20" text-anchor="middle">🕊️</text>
-  <text x="100" y="115" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="800" font-size="20" fill="#1e3a8a">Fly</text>
-  <!-- Tag -->
-  <rect x="370" y="95" width="90" height="24" rx="8" fill="#3b82f6" opacity="0.18"/>
-  <text x="415" y="112" font-family="'SF Mono',monospace" font-weight="700" font-size="11" fill="#1d4ed8" text-anchor="middle">position</text>
-  <!-- Content -->
-  <circle cx="62" cy="155" r="4" fill="#3b82f6"/>
-  <text x="78" y="160" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="14" fill="#334155">Sends "position" packets with periodic offsets.</text>
-  <circle cx="62" cy="185" r="4" fill="#3b82f6"/>
-  <text x="78" y="190" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="14" fill="#334155">Uses yaw to move in the look direction.</text>
-  <circle cx="62" cy="215" r="4" fill="#3b82f6"/>
-  <text x="78" y="220" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="14" fill="#334155">Params:</text>
-  <rect x="142" y="206" width="118" height="22" rx="6" fill="#3b82f6" opacity="0.1"/>
-  <text x="201" y="221" font-family="'SF Mono',monospace" font-weight="600" font-size="11" fill="#2563eb" text-anchor="middle">horizontalBoost</text>
-  <rect x="266" y="206" width="100" height="22" rx="6" fill="#3b82f6" opacity="0.1"/>
-  <text x="316" y="221" font-family="'SF Mono',monospace" font-weight="600" font-size="11" fill="#2563eb" text-anchor="middle">verticalBoost</text>
-  <rect x="372" y="206" width="80" height="22" rx="6" fill="#3b82f6" opacity="0.1"/>
-  <text x="412" y="221" font-family="'SF Mono',monospace" font-weight="600" font-size="11" fill="#2563eb" text-anchor="middle">intervalMs</text>
-  <!-- Separator -->
-  <line x1="50" y1="248" x2="460" y2="248" stroke="#93b4f8" stroke-width="1" opacity="0.4"/>
-  <text x="255" y="268" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="11" fill="#64748b" text-anchor="middle">Simulates creative-mode flight via raw packets</text>
+  <rect x="20" y="80" width="460" height="48" rx="16" fill="#3b82f6" opacity="0.1"/>
+  <rect x="20" y="108" width="460" height="20" fill="#3b82f6" opacity="0.1"/>
+  <rect x="40" y="90" width="34" height="34" rx="9" fill="#3b82f6" opacity="0.18"/>
+  <text x="57" y="113" font-size="18" text-anchor="middle">🕊️</text>
+  <text x="86" y="112" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="800" font-size="19" fill="#1e3a8a">Fly</text>
+  <rect x="370" y="93" width="90" height="22" rx="7" fill="#3b82f6" opacity="0.15"/>
+  <text x="415" y="108" font-family="'SF Mono',monospace" font-weight="700" font-size="10.5" fill="#1d4ed8" text-anchor="middle">position</text>
 
-  <!-- ════════════ CARD 2: NOFALL ════════════ -->
+  <circle cx="52" cy="150" r="3.5" fill="#3b82f6"/>
+  <text x="66" y="155" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Sends periodic position packets with directional offsets</text>
+  <circle cx="52" cy="176" r="3.5" fill="#3b82f6"/>
+  <text x="66" y="181" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Uses entity yaw to calculate forward movement vector</text>
+  <circle cx="52" cy="202" r="3.5" fill="#3b82f6"/>
+  <text x="66" y="207" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Configurable boost and tick interval</text>
+
+  <line x1="40" y1="224" x2="460" y2="224" stroke="#93b4f8" stroke-width="1" opacity="0.35"/>
+  <rect x="40" y="234" width="108" height="20" rx="5" fill="#3b82f6" opacity="0.08"/>
+  <text x="94" y="248" font-family="'SF Mono',monospace" font-weight="600" font-size="10" fill="#2563eb" text-anchor="middle">horizontalBoost</text>
+  <rect x="156" y="234" width="95" height="20" rx="5" fill="#3b82f6" opacity="0.08"/>
+  <text x="203" y="248" font-family="'SF Mono',monospace" font-weight="600" font-size="10" fill="#2563eb" text-anchor="middle">verticalBoost</text>
+  <rect x="259" y="234" width="72" height="20" rx="5" fill="#3b82f6" opacity="0.08"/>
+  <text x="295" y="248" font-family="'SF Mono',monospace" font-weight="600" font-size="10" fill="#2563eb" text-anchor="middle">intervalMs</text>
+  <rect x="339" y="234" width="52" height="20" rx="5" fill="#3b82f6" opacity="0.08"/>
+  <text x="365" y="248" font-family="'SF Mono',monospace" font-weight="600" font-size="10" fill="#2563eb" text-anchor="middle">mode</text>
+  <text x="250" y="278" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="10.5" fill="#64748b" text-anchor="middle">Simulates creative-mode flight via raw packet injection</text>
+
+  <!-- CARD: NOFALL -->
   <g filter="url(#shadow)">
-    <rect x="500" y="82" width="450" height="200" rx="16" fill="url(#cardNoFall)" stroke="#fbbf24" stroke-width="1.5"/>
+    <rect x="500" y="80" width="460" height="210" rx="16" fill="url(#cardNoFall)" stroke="#fbbf24" stroke-width="1.5"/>
   </g>
-  <!-- Header -->
-  <rect x="500" y="82" width="450" height="50" rx="16" fill="#f59e0b" opacity="0.15"/>
-  <rect x="500" y="110" width="450" height="22" fill="#f59e0b" opacity="0.15"/>
-  <rect x="520" y="92" width="36" height="36" rx="10" fill="#f59e0b" opacity="0.2"/>
-  <text x="538" y="117" font-size="20" text-anchor="middle">🛡️</text>
-  <text x="570" y="115" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="800" font-size="20" fill="#92400e">NoFall</text>
-  <!-- Tag -->
-  <rect x="830" y="95" width="100" height="24" rx="8" fill="#f59e0b" opacity="0.2"/>
-  <text x="880" y="112" font-family="'SF Mono',monospace" font-weight="700" font-size="11" fill="#b45309" text-anchor="middle">onGround</text>
-  <!-- Content -->
-  <circle cx="532" cy="155" r="4" fill="#d97706"/>
-  <text x="548" y="160" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="14" fill="#334155">Intercepts outgoing movement packets.</text>
-  <circle cx="532" cy="185" r="4" fill="#d97706"/>
-  <text x="548" y="190" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="14" fill="#334155">Forces</text>
-  <rect x="600" y="176" width="120" height="22" rx="6" fill="#f59e0b" opacity="0.15"/>
-  <text x="660" y="192" font-family="'SF Mono',monospace" font-weight="600" font-size="12" fill="#b45309" text-anchor="middle">onGround: true</text>
-  <text x="730" y="190" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="14" fill="#334155">to negate fall damage.</text>
-  <circle cx="532" cy="215" r="4" fill="#d97706"/>
-  <text x="548" y="220" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="14" fill="#334155">Fully compatible with Fly and Speed hacks.</text>
-  <!-- Separator -->
-  <line x1="520" y1="248" x2="930" y2="248" stroke="#fbbf24" stroke-width="1" opacity="0.4"/>
-  <text x="725" y="268" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="11" fill="#64748b" text-anchor="middle">Prevents all fall damage by spoofing ground state</text>
+  <rect x="500" y="80" width="460" height="48" rx="16" fill="#f59e0b" opacity="0.12"/>
+  <rect x="500" y="108" width="460" height="20" fill="#f59e0b" opacity="0.12"/>
+  <rect x="520" y="90" width="34" height="34" rx="9" fill="#f59e0b" opacity="0.18"/>
+  <text x="537" y="113" font-size="18" text-anchor="middle">🛡️</text>
+  <text x="566" y="112" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="800" font-size="19" fill="#92400e">NoFall</text>
+  <rect x="840" y="93" width="100" height="22" rx="7" fill="#f59e0b" opacity="0.17"/>
+  <text x="890" y="108" font-family="'SF Mono',monospace" font-weight="700" font-size="10.5" fill="#b45309" text-anchor="middle">onGround</text>
 
-  <!-- ════════════ CARD 3: SPEED ════════════ -->
+  <circle cx="532" cy="150" r="3.5" fill="#d97706"/>
+  <text x="546" y="155" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Intercepts all outgoing movement packets</text>
+  <circle cx="532" cy="176" r="3.5" fill="#d97706"/>
+  <text x="546" y="181" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Forces</text>
+  <rect x="594" y="168" width="108" height="20" rx="5" fill="#f59e0b" opacity="0.13"/>
+  <text x="648" y="182" font-family="'SF Mono',monospace" font-weight="600" font-size="11" fill="#b45309" text-anchor="middle">onGround: true</text>
+  <text x="712" y="181" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">to negate fall damage</text>
+  <circle cx="532" cy="202" r="3.5" fill="#d97706"/>
+  <text x="546" y="207" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Fully compatible with Fly, Speed, and Phase hacks</text>
+
+  <line x1="520" y1="224" x2="940" y2="224" stroke="#fbbf24" stroke-width="1" opacity="0.35"/>
+  <text x="730" y="248" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="10.5" fill="#64748b" text-anchor="middle">Zero configuration — just enable and all fall damage is negated</text>
+  <text x="730" y="278" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="10.5" fill="#64748b" text-anchor="middle">Spoofs ground state on every movement packet leaving the client</text>
+
+  <!-- ═══════════ ROW 2 ═══════════ -->
+
+  <!-- CARD: SPEED -->
   <g filter="url(#shadow)">
-    <rect x="30" y="304" width="450" height="200" rx="16" fill="url(#cardSpeed)" stroke="#86efac" stroke-width="1.5"/>
+    <rect x="20" y="310" width="460" height="210" rx="16" fill="url(#cardSpeed)" stroke="#86efac" stroke-width="1.5"/>
   </g>
-  <!-- Header -->
-  <rect x="30" y="304" width="450" height="50" rx="16" fill="#22c55e" opacity="0.12"/>
-  <rect x="30" y="332" width="450" height="22" fill="#22c55e" opacity="0.12"/>
-  <rect x="50" y="314" width="36" height="36" rx="10" fill="#22c55e" opacity="0.2"/>
-  <text x="68" y="339" font-size="20" text-anchor="middle">⚡</text>
-  <text x="100" y="337" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="800" font-size="20" fill="#14532d">Speed</text>
-  <!-- Tag -->
-  <rect x="370" y="317" width="90" height="24" rx="8" fill="#22c55e" opacity="0.18"/>
-  <text x="415" y="334" font-family="'SF Mono',monospace" font-weight="700" font-size="11" fill="#15803d" text-anchor="middle">burst</text>
-  <!-- Content -->
-  <circle cx="62" cy="377" r="4" fill="#16a34a"/>
-  <text x="78" y="382" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="14" fill="#334155">Repeats position sends (burst) per tick.</text>
-  <circle cx="62" cy="407" r="4" fill="#16a34a"/>
-  <text x="78" y="412" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="14" fill="#334155">Injects small offsets to "accelerate" movement.</text>
-  <circle cx="62" cy="437" r="4" fill="#16a34a"/>
-  <text x="78" y="442" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="14" fill="#334155">Params:</text>
-  <rect x="142" y="428" width="82" height="22" rx="6" fill="#22c55e" opacity="0.12"/>
-  <text x="183" y="443" font-family="'SF Mono',monospace" font-weight="600" font-size="11" fill="#15803d" text-anchor="middle">multiplier</text>
-  <rect x="232" y="428" width="108" height="22" rx="6" fill="#22c55e" opacity="0.12"/>
-  <text x="286" y="443" font-family="'SF Mono',monospace" font-weight="600" font-size="11" fill="#15803d" text-anchor="middle">burstPackets</text>
-  <!-- Separator -->
-  <line x1="50" y1="468" x2="460" y2="468" stroke="#86efac" stroke-width="1" opacity="0.4"/>
-  <text x="255" y="490" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="11" fill="#64748b" text-anchor="middle">Multiplies effective movement speed via packet spam</text>
+  <rect x="20" y="310" width="460" height="48" rx="16" fill="#22c55e" opacity="0.1"/>
+  <rect x="20" y="338" width="460" height="20" fill="#22c55e" opacity="0.1"/>
+  <rect x="40" y="320" width="34" height="34" rx="9" fill="#22c55e" opacity="0.18"/>
+  <text x="57" y="343" font-size="18" text-anchor="middle">⚡</text>
+  <text x="86" y="342" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="800" font-size="19" fill="#14532d">Speed</text>
+  <rect x="370" y="323" width="90" height="22" rx="7" fill="#22c55e" opacity="0.15"/>
+  <text x="415" y="338" font-family="'SF Mono',monospace" font-weight="700" font-size="10.5" fill="#15803d" text-anchor="middle">burst</text>
 
-  <!-- ════════════ CARD 4: BLINK ════════════ -->
+  <circle cx="52" cy="380" r="3.5" fill="#16a34a"/>
+  <text x="66" y="385" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Repeats position packets in burst per movement tick</text>
+  <circle cx="52" cy="406" r="3.5" fill="#16a34a"/>
+  <text x="66" y="411" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Injects directional offsets to accelerate advancement</text>
+  <circle cx="52" cy="432" r="3.5" fill="#16a34a"/>
+  <text x="66" y="437" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Adjustable multiplier and burst packet count</text>
+
+  <line x1="40" y1="454" x2="460" y2="454" stroke="#86efac" stroke-width="1" opacity="0.35"/>
+  <rect x="40" y="464" width="78" height="20" rx="5" fill="#22c55e" opacity="0.1"/>
+  <text x="79" y="478" font-family="'SF Mono',monospace" font-weight="600" font-size="10" fill="#15803d" text-anchor="middle">multiplier</text>
+  <rect x="126" y="464" width="82" height="20" rx="5" fill="#22c55e" opacity="0.1"/>
+  <text x="167" y="478" font-family="'SF Mono',monospace" font-weight="600" font-size="10" fill="#15803d" text-anchor="middle">burstCount</text>
+  <rect x="216" y="464" width="66" height="20" rx="5" fill="#22c55e" opacity="0.1"/>
+  <text x="249" y="478" font-family="'SF Mono',monospace" font-weight="600" font-size="10" fill="#15803d" text-anchor="middle">stepSize</text>
+  <text x="250" y="508" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="10.5" fill="#64748b" text-anchor="middle">Multiplies effective movement speed via packet spam</text>
+
+  <!-- CARD: BLINK -->
   <g filter="url(#shadow)">
-    <rect x="500" y="304" width="450" height="200" rx="16" fill="url(#cardBlink)" stroke="#b197fc" stroke-width="1.5"/>
+    <rect x="500" y="310" width="460" height="210" rx="16" fill="url(#cardBlink)" stroke="#b197fc" stroke-width="1.5"/>
   </g>
-  <!-- Header -->
-  <rect x="500" y="304" width="450" height="50" rx="16" fill="#7c3aed" opacity="0.1"/>
-  <rect x="500" y="332" width="450" height="22" fill="#7c3aed" opacity="0.1"/>
-  <rect x="520" y="314" width="36" height="36" rx="10" fill="#7c3aed" opacity="0.2"/>
-  <text x="538" y="339" font-size="20" text-anchor="middle">👻</text>
-  <text x="570" y="337" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="800" font-size="20" fill="#3b1f6e">Blink</text>
-  <!-- Tag -->
-  <rect x="840" y="317" width="90" height="24" rx="8" fill="#7c3aed" opacity="0.15"/>
-  <text x="885" y="334" font-family="'SF Mono',monospace" font-weight="700" font-size="11" fill="#6d28d9" text-anchor="middle">queue</text>
-  <!-- Content -->
-  <circle cx="532" cy="377" r="4" fill="#7c3aed"/>
-  <text x="548" y="382" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="14" fill="#334155">Queues movement packets in memory.</text>
-  <circle cx="532" cy="407" r="4" fill="#7c3aed"/>
-  <text x="548" y="412" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="14" fill="#334155">On disable, can flush all packets at once.</text>
-  <circle cx="532" cy="437" r="4" fill="#7c3aed"/>
-  <text x="548" y="442" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="14" fill="#334155">Useful for desync / lag simulation testing.</text>
-  <!-- Separator -->
-  <line x1="520" y1="468" x2="930" y2="468" stroke="#b197fc" stroke-width="1" opacity="0.4"/>
-  <text x="725" y="490" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="11" fill="#64748b" text-anchor="middle">Creates a "teleport" effect by holding then releasing packets</text>
+  <rect x="500" y="310" width="460" height="48" rx="16" fill="#7c3aed" opacity="0.08"/>
+  <rect x="500" y="338" width="460" height="20" fill="#7c3aed" opacity="0.08"/>
+  <rect x="520" y="320" width="34" height="34" rx="9" fill="#7c3aed" opacity="0.18"/>
+  <text x="537" y="343" font-size="18" text-anchor="middle">👻</text>
+  <text x="566" y="342" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="800" font-size="19" fill="#3b1f6e">Blink</text>
+  <rect x="840" y="323" width="90" height="22" rx="7" fill="#7c3aed" opacity="0.12"/>
+  <text x="885" y="338" font-family="'SF Mono',monospace" font-weight="700" font-size="10.5" fill="#6d28d9" text-anchor="middle">queue</text>
 
-  <!-- Footer watermark -->
-  <text x="490" y="540" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="11" fill="#94a3b8" text-anchor="middle" opacity="0.6">⚠ For testing and analysis environments only — may be detected by anticheat systems</text>
+  <circle cx="532" cy="380" r="3.5" fill="#7c3aed"/>
+  <text x="546" y="385" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Queues all movement packets in memory buffer</text>
+  <circle cx="532" cy="406" r="3.5" fill="#7c3aed"/>
+  <text x="546" y="411" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">On disable, flush sends everything at once (teleport)</text>
+  <circle cx="532" cy="432" r="3.5" fill="#7c3aed"/>
+  <text x="546" y="437" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Ideal for desync testing and lag simulation</text>
+
+  <line x1="520" y1="454" x2="940" y2="454" stroke="#b197fc" stroke-width="1" opacity="0.35"/>
+  <rect x="520" y="464" width="74" height="20" rx="5" fill="#7c3aed" opacity="0.08"/>
+  <text x="557" y="478" font-family="'SF Mono',monospace" font-weight="600" font-size="10" fill="#6d28d9" text-anchor="middle">maxQueue</text>
+  <text x="730" y="508" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="10.5" fill="#64748b" text-anchor="middle">Creates a teleport effect by holding then releasing packets</text>
+
+  <!-- ═══════════ ROW 3 ═══════════ -->
+
+  <!-- CARD: VELOCITY / NOKNOCKBACK -->
+  <g filter="url(#shadow)">
+    <rect x="20" y="540" width="460" height="210" rx="16" fill="url(#cardVelocity)" stroke="#fca5a5" stroke-width="1.5"/>
+  </g>
+  <rect x="20" y="540" width="460" height="48" rx="16" fill="#ef4444" opacity="0.08"/>
+  <rect x="20" y="568" width="460" height="20" fill="#ef4444" opacity="0.08"/>
+  <rect x="40" y="550" width="34" height="34" rx="9" fill="#ef4444" opacity="0.15"/>
+  <text x="57" y="573" font-size="18" text-anchor="middle">💥</text>
+  <text x="86" y="572" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="800" font-size="19" fill="#991b1b">Velocity / NoKB</text>
+  <rect x="350" y="553" width="110" height="22" rx="7" fill="#ef4444" opacity="0.12"/>
+  <text x="405" y="568" font-family="'SF Mono',monospace" font-weight="700" font-size="10.5" fill="#dc2626" text-anchor="middle">entity_velocity</text>
+
+  <circle cx="52" cy="610" r="3.5" fill="#dc2626"/>
+  <text x="66" y="615" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Intercepts incoming velocity packets from server</text>
+  <circle cx="52" cy="636" r="3.5" fill="#dc2626"/>
+  <text x="66" y="641" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Velocity: scales knockback by custom multiplier</text>
+  <circle cx="52" cy="662" r="3.5" fill="#dc2626"/>
+  <text x="66" y="667" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">NoKnockback: cancels velocity packets entirely</text>
+
+  <line x1="40" y1="684" x2="460" y2="684" stroke="#fca5a5" stroke-width="1" opacity="0.35"/>
+  <rect x="40" y="694" width="76" height="20" rx="5" fill="#ef4444" opacity="0.08"/>
+  <text x="78" y="708" font-family="'SF Mono',monospace" font-weight="600" font-size="10" fill="#dc2626" text-anchor="middle">horizontal</text>
+  <rect x="124" y="694" width="60" height="20" rx="5" fill="#ef4444" opacity="0.08"/>
+  <text x="154" y="708" font-family="'SF Mono',monospace" font-weight="600" font-size="10" fill="#dc2626" text-anchor="middle">vertical</text>
+  <text x="250" y="738" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="10.5" fill="#64748b" text-anchor="middle">Controls knockback reception — set to 0.0 for full anti-KB</text>
+
+  <!-- CARD: PHASE -->
+  <g filter="url(#shadow)">
+    <rect x="500" y="540" width="460" height="210" rx="16" fill="url(#cardPhase)" stroke="#67e8f9" stroke-width="1.5"/>
+  </g>
+  <rect x="500" y="540" width="460" height="48" rx="16" fill="#06b6d4" opacity="0.08"/>
+  <rect x="500" y="568" width="460" height="20" fill="#06b6d4" opacity="0.08"/>
+  <rect x="520" y="550" width="34" height="34" rx="9" fill="#06b6d4" opacity="0.15"/>
+  <text x="537" y="573" font-size="18" text-anchor="middle">🌀</text>
+  <text x="566" y="572" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="800" font-size="19" fill="#164e63">Phase</text>
+  <rect x="840" y="553" width="90" height="22" rx="7" fill="#06b6d4" opacity="0.12"/>
+  <text x="885" y="568" font-family="'SF Mono',monospace" font-weight="700" font-size="10.5" fill="#0891b2" text-anchor="middle">noclip</text>
+
+  <circle cx="532" cy="610" r="3.5" fill="#0891b2"/>
+  <text x="546" y="615" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Moves through solid blocks using raw position packets</text>
+  <circle cx="532" cy="636" r="3.5" fill="#0891b2"/>
+  <text x="546" y="641" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Uses full 3D direction vector (yaw + pitch) for movement</text>
+  <circle cx="532" cy="662" r="3.5" fill="#0891b2"/>
+  <text x="546" y="667" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="13.5" fill="#334155">Bypasses client-side collision detection entirely</text>
+
+  <line x1="520" y1="684" x2="940" y2="684" stroke="#67e8f9" stroke-width="1" opacity="0.35"/>
+  <rect x="520" y="694" width="56" height="20" rx="5" fill="#06b6d4" opacity="0.08"/>
+  <text x="548" y="708" font-family="'SF Mono',monospace" font-weight="600" font-size="10" fill="#0891b2" text-anchor="middle">speed</text>
+  <text x="730" y="738" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="10.5" fill="#64748b" text-anchor="middle">Walk through walls by ignoring block collision server-side</text>
+
+  <!-- Footer -->
+  <text x="490" y="790" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="600" font-size="12" fill="#94a3b8" text-anchor="middle" opacity="0.5">⚠ For testing and analysis environments only — may trigger anticheat detection</text>
+  <text x="490" y="810" font-family="'SF Pro Display',system-ui,sans-serif" font-weight="500" font-size="11" fill="#94a3b8" text-anchor="middle" opacity="0.4">All hacks are extensible via bot.packetHacks.registerHack()</text>
 </svg>

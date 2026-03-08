@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="520" viewBox="0 0 980 520">
+  <style>
+    .title { font: 700 28px sans-serif; fill: #111827; }
+    .card { fill: #f8fafc; stroke: #334155; stroke-width: 2; rx: 14; }
+    .name { font: 700 22px sans-serif; fill: #0f172a; }
+    .desc { font: 500 15px sans-serif; fill: #334155; }
+  </style>
+
+  <text x="30" y="46" class="title">Resumen de hacks por paquete</text>
+
+  <rect x="30" y="80" width="440" height="180" class="card"/>
+  <text x="55" y="120" class="name">Fly</text>
+  <text x="55" y="150" class="desc">• Envía "position" con desplazamientos periódicos.</text>
+  <text x="55" y="175" class="desc">• Usa yaw para avanzar en la dirección de mirada.</text>
+  <text x="55" y="200" class="desc">• Ajuste fino: horizontalBoost, verticalBoost, intervalMs.</text>
+
+  <rect x="510" y="80" width="440" height="180" class="card"/>
+  <text x="535" y="120" class="name">NoFall</text>
+  <text x="535" y="150" class="desc">• Intercepta paquetes de movimiento salientes.</text>
+  <text x="535" y="175" class="desc">• Fuerza onGround: true para evitar daño de caída.</text>
+  <text x="535" y="200" class="desc">• Compatible con Fly y Speed.</text>
+
+  <rect x="30" y="290" width="440" height="180" class="card"/>
+  <text x="55" y="330" class="name">Speed</text>
+  <text x="55" y="360" class="desc">• Repite envíos de posición (burst) por tick.</text>
+  <text x="55" y="385" class="desc">• Inyecta pequeños offsets para "acelerar" avance.</text>
+  <text x="55" y="410" class="desc">• Parámetros: multiplier, burstPackets.</text>
+
+  <rect x="510" y="290" width="440" height="180" class="card"/>
+  <text x="535" y="330" class="name">Blink</text>
+  <text x="535" y="360" class="desc">• Cola paquetes de movimiento en memoria.</text>
+  <text x="535" y="385" class="desc">• Al desactivar, puede "flush" y enviar todo junto.</text>
+  <text x="535" y="410" class="desc">• Útil para pruebas de desync / lag simulation.</text>
+</svg>

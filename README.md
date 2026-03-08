@@ -218,7 +218,3 @@ mineflayer-packet/
 
 ---
 
-<p align="center">
-  <strong>⚠️ For testing and analysis purposes only.</strong><br>
-  <em>Using this on public servers may violate server rules and result in bans.</em>
-</p>

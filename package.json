@@ -1,0 +1,16 @@
+{
+  "name": "mineflayer-packet",
+  "version": "0.1.0",
+  "description": "Plugin de Mineflayer para manipulación de paquetes (fly, noFall, speed, blink)",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "check": "node --check src/packetHacksPlugin.js && node --check examples/basic-usage.js"
+  },
+  "keywords": [
+    "mineflayer",
+    "minecraft",
+    "packets"
+  ],
+  "license": "MIT"
+}
